@@ -9,14 +9,11 @@ import spock.lang.Specification
 @TestFor(HelloController)
 class HelloSpec extends Specification {
 
-    def setup() {
-    }
-
-    def cleanup() {
-    }
-
     void "test something"() {
-        expect:"fix me"
-            true == true
+        when:
+        controller.index()
+
+        then:
+        '{"message":"Hello, World!"}' == response.text
     }
 }
